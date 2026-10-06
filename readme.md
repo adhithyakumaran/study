@@ -6,6 +6,7 @@ Feature-mapping research for tool comparison (Katalon, Tricentis Tosca, Playwrig
 
 - [`katalon-feature-mapping-research.md`](./katalon-feature-mapping-research.md) — [Katalon Docs](https://docs.katalon.com/)
 - [`tricentis-tosca-feature-mapping-research.md`](./tricentis-tosca-feature-mapping-research.md) — [Tricentis Docs](https://docs.tricentis.com/)
+- [`mabl-feature-rnd.md`](./mabl-feature-rnd.md) — [mabl Help](https://help.mabl.com/), [mabl Docs](https://docs.mabl.com/)
 
 ## How to use
 
