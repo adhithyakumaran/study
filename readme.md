@@ -1,11 +1,12 @@
-# Katalon comparative R&D
+# Test automation comparative r&d
 
-This repository contains feature-mapping research on **Katalon** (Studio, Runtime Engine, True Platform) based on [official Katalon documentation](https://docs.katalon.com/).
+Feature-mapping research for tool comparison (Katalon, Tricentis Tosca, Playwright, and others). Claims are tied to **official vendor documentation** unless marked as an external source.
 
-## Main artifact
+## Artifacts
 
-- [`katalon-feature-mapping-research.md`](./katalon-feature-mapping-research.md) — implementation-focused capability map for comparison with other automation tools (e.g. Tosca, Playwright).
+- [`katalon-feature-mapping-research.md`](./katalon-feature-mapping-research.md) — [Katalon Docs](https://docs.katalon.com/)
+- [`tricentis-tosca-feature-mapping-research.md`](./tricentis-tosca-feature-mapping-research.md) — [Tricentis Docs](https://docs.tricentis.com/)
 
 ## How to use
 
-Open the Markdown file in any editor or viewer. Each major capability includes **what it does**, **how Katalon provides it**, a **workflow**, and **documentation evidence** links.
+Each document uses the same pattern per major capability: **what it does**, **how the product provides it**, a **typical workflow**, and **evidence** links.
