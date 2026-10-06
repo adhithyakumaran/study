@@ -8,6 +8,7 @@ Feature-mapping research for tool comparison (Katalon, Tricentis Tosca, Playwrig
 - [`tricentis-tosca-feature-mapping-research.md`](./tricentis-tosca-feature-mapping-research.md) — [Tricentis Docs](https://docs.tricentis.com/)
 - [`mabl-feature-rnd.md`](./mabl-feature-rnd.md) — [mabl Help](https://help.mabl.com/), [mabl Docs](https://docs.mabl.com/)
 - [`testcomplete-feature-rnd.md`](./testcomplete-feature-rnd.md) — [TestComplete Docs](https://support.smartbear.com/testcomplete/docs/)
+- [`Automation_Tools_Feature_Comparison.md`](./Automation_Tools_Feature_Comparison.md) — five-tool feature matrix (Katalon, Tosca, mabl, TestComplete, Playwright)
 
 ## How to use
 
