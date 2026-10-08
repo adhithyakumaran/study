@@ -10,7 +10,7 @@ Tests are created via Recorder, Manual/keyword, and Script. Three independent re
 
 ## Decision
 
-One **Canonical Test Model** is the source of test intent (actions, targets by `objectId`, data, assertions, control flow). All authoring modes converge on it; the Execution Engine consumes it.
+One **Canonical Test Model** is the source of test intent. A Test Case contains ordered Test Steps (`stepId`, `action`, `target` by `objectId`, plus assertion/data/control as applicable). All authoring modes (Recorder, Manual/Keyword, Script) converge on it; the Execution Engine consumes it.
 
 ```text
 Recorder ──┐

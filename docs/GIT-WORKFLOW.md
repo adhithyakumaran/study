@@ -61,6 +61,6 @@ SemVer `MAJOR.MINOR.PATCH` when packaging starts (`0.1.0` … `1.0.0`). Do not l
 
 Ignore generated/machine files, not user-owned Project artifacts.
 
-**Ignore:** `node_modules/`, `dist/`, `build/`, `.env`, `*.log`, `.internal/cache/`, temporary browser data, OS junk.
+**Ignore:** `node_modules/`, `dist/`, `build/`, `.env`, `*.log`, `.internal/` (SQLite and other runtime state), temporary browser data, OS junk.
 
-**Do not ignore:** tests, objects, project/application/environment/browser config, scripts the user authored.
+**Do not ignore:** user-owned source of truth — `project.json`, `applications/`, `environments/`, `browsers/`, `objects/`, `tests/`, `suites/`, `data/`, `scripts/`.

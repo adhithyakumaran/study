@@ -109,6 +109,21 @@ Script ────┘
 
 Intent, not Playwright code, is the source of truth (example: `{ "action": "click", "target": { "objectId": "loginButton" } }`). See [ADR-004](adr/ADR-004-test-model.md).
 
+## Project files vs SQLite
+
+| Kind | Storage |
+| --- | --- |
+| User-owned Project artifacts | Portable, Git-friendly files (source of truth) |
+| Application / runtime state | SQLite under `.internal/` (non-authoritative) |
+
+**Project source of truth:** `project.json`, `applications/`, `environments/`, `browsers/`, `objects/`, `tests/`, `suites/`, `data/`, `scripts/`.
+
+**SQLite may contain:** recent-project indexes, execution history/indexes, search indexes, caches, internal application state, other non-authoritative runtime metadata.
+
+**Rule:** SQLite MUST NOT become the only or source-of-truth representation of user-owned tests, objects, configuration, suites, or scripts.
+
+Variable resolution and precedence will be defined as part of the Test Data / variable implementation and are intentionally not specified by the V1 architecture documents.
+
 ## Local-first and future cloud
 
 **V1:** Desktop → local runtime → Playwright Adapter → browser. No required backend. [ADR-003](adr/ADR-003-local-first.md).

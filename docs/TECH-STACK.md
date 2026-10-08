@@ -40,11 +40,20 @@ Local filesystem, SQLite, Playwright, and an IDE UI require a desktop runtime. E
 
 Tauri is **not** V1 (Rust + Node/Playwright split). Reconsider only if footprint becomes a proven problem. [ADR-001](adr/ADR-001-desktop-architecture.md).
 
-## Why SQLite
+## Why SQLite / Project vs runtime state
 
-No DB server. Holds **application** metadata: recent projects, indexes, Execution history, search/cache, internal state.
+No DB server. Split storage:
 
-**Not** the source of truth for user-owned Project artifacts (tests, objects, config, scripts). Those stay Git-friendly files. Do not make SQLite the only Project representation. [ADR-003](adr/ADR-003-local-first.md).
+| Kind | Storage |
+| --- | --- |
+| User-owned Project artifacts | Portable, Git-friendly files (source of truth) |
+| Application / runtime state | SQLite under `.internal/` |
+
+**Project source of truth:** `project.json`, `applications/`, `environments/`, `browsers/`, `objects/`, `tests/`, `suites/`, `data/`, `scripts/`.
+
+**SQLite may contain:** recent-project indexes, execution history/indexes, search indexes, caches, internal application state, other non-authoritative runtime metadata.
+
+**Rule:** SQLite MUST NOT become the only or source-of-truth representation of user-owned tests, objects, configuration, suites, or scripts. [ADR-003](adr/ADR-003-local-first.md).
 
 ## Local infrastructure model
 

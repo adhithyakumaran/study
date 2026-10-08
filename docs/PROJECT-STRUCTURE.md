@@ -67,7 +67,7 @@ UI only. No filesystem, SQLite, or Playwright.
 | Package | Contains |
 | --- | --- |
 | `domain` | Entities and rules |
-| `test-model` | Test Case, Test Step, variables, Assertion |
+| `test-model` | Test Case with nested Test Steps, variables, Assertion |
 | `object-model` | Test Objects, locators, Object Repository |
 | `execution-engine` | Run orchestration (no Playwright types) |
 | `keyword-engine` | Keyword metadata and execution contracts |
@@ -77,26 +77,34 @@ UI only. No filesystem, SQLite, or Playwright.
 
 ## User Project (on disk)
 
-Git-friendly artifacts. SQLite under `.internal/` is local metadata, not the Project source of truth.
+User-owned Project state is stored as portable, Git-friendly project files. Application-owned runtime state is stored in SQLite under `.internal/`.
+
+**Project source of truth:** `project.json`, `applications/`, `environments/`, `browsers/`, `objects/`, `tests/`, `suites/`, `data/`, `scripts/`.
+
+**SQLite may contain:** recent-project indexes, execution history/indexes, search indexes, caches, internal application state, other non-authoritative runtime metadata.
+
+**Rule:** SQLite MUST NOT become the only or source-of-truth representation of user-owned tests, objects, configuration, suites, or scripts.
+
+`tests/` holds Test Case artifacts (each Test Case contains ordered Test Steps). Do not require separate Test Step files.
 
 ```text
 <project>/
-├── project.json
-├── applications/         # e.g. endless-aisle.json
-├── environments/         # qa.json, uat.json
-├── browsers/             # Browser Profile files
-├── objects/              # Object Repository
-├── tests/                # Canonical Test Model files
-├── suites/
-├── data/
-├── scripts/
-├── executions/
-├── reports/
+├── project.json            # SoT
+├── applications/           # SoT
+├── environments/           # SoT
+├── browsers/               # SoT (Browser Profiles)
+├── objects/                # SoT (Object Repository)
+├── tests/                  # SoT (Test Cases / Canonical Test Model)
+├── suites/                 # SoT
+├── data/                   # SoT
+├── scripts/                # SoT
+├── executions/             # generated run output (not SoT)
+├── reports/                # generated (not SoT)
 └── .internal/
-    └── project.db
+    └── project.db          # SQLite runtime/internal state (not SoT)
 ```
 
-Exact filenames may evolve; user-owned tests, objects, config, and scripts stay portable and committable.
+Exact filenames may evolve. Generated `executions/` / `reports/` may exist on disk; indexes/history may also live in SQLite. Neither replaces the source-of-truth directories above.
 
 ## Dependency direction
 

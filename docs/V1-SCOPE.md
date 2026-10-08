@@ -45,7 +45,9 @@ Do not pull these in without a formal product/architecture decision.
 
 A user can **repeatedly**, without engineering intervention:
 
-Create a Project → configure a web Application + Environment + Browser Profile → author a login Test Case (record or manual) → run locally through the Execution Engine / Playwright Adapter → assert → capture Evidence → recover from a simple locator change via deterministic healing → see the result.
+Create a Project → configure Application + Environment + Browser Profile → create a login Test Case using a supported authoring mode (Recorder, Manual/Keyword, or Script) → execute locally → assert → capture Evidence → recover from a simple locator change using deterministic healing → inspect the result.
+
+V1 includes all three authoring modes; they need not be equally complete at every milestone. All of them write the Canonical Test Model.
 
 ## Scope decision rule
 

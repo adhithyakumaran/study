@@ -10,9 +10,15 @@ V1 must work without operating a cloud control plane or remote execution fleet.
 
 ## Decision
 
-Core V1 runs **locally**: desktop app, Git-friendly Project files, SQLite (metadata/history/cache), Playwright, browser, Execution, reports.
+Core V1 runs **locally**: desktop app, Playwright, browser, Execution. No mandatory application server.
 
-No mandatory application server. User-owned artifacts stay on disk; SQLite is not the Project source of truth.
+User-owned Project state is stored as portable, Git-friendly project files. Application-owned runtime state is stored in SQLite under `.internal/`.
+
+**Project source of truth:** `project.json`, `applications/`, `environments/`, `browsers/`, `objects/`, `tests/`, `suites/`, `data/`, `scripts/`.
+
+**SQLite may contain:** recent-project indexes, execution history/indexes, search indexes, caches, internal application state, other non-authoritative runtime metadata.
+
+**Rule:** SQLite MUST NOT become the only or source-of-truth representation of user-owned tests, objects, configuration, suites, or scripts.
 
 Future remote runs go through an **execution interface**; the Canonical Test Model does not change.
 
@@ -21,7 +27,7 @@ Future remote runs go through an **execution interface**; the Canonical Test Mod
 | Option | Outcome |
 | --- | --- |
 | Cloud-required V1 | Higher cost, blocks offline core journey. Rejected. |
-| SQLite as only Project store | Not Git-friendly; poor portability. Rejected. |
+| SQLite as only Project store | Not Git-friendly; poor portability. Rejected (SQLite is runtime/internal state only). |
 
 ## Consequences
 

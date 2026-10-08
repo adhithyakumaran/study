@@ -51,7 +51,7 @@ Healing Engine is part of Object Resolver / Execution, not a side product. Fail 
 | --- | --- |
 | Unit | Vitest: domain rules, services, validation, locator ranking, healing confidence, Test Model transforms |
 | Integration | Persistence, service/repos, IPC contracts, Playwright Adapter |
-| E2E | Create/open Project, record, execute, view result |
+| E2E | Create/open Project, author (Recorder / Manual / Script), execute, view result |
 
 Do not optimize early. Avoid extra browser launches, repeated full DOM scans, chatty IPC, unbounded logs, loading full artifacts when metadata suffices.
 
@@ -67,7 +67,7 @@ Do not optimize early. Avoid extra browser launches, repeated full DOM scans, ch
 1. Journey ([USER-JOURNEYS.md](USER-JOURNEYS.md))
 2. Entities ([DOMAIN-MODEL.md](DOMAIN-MODEL.md))
 3. Existing interfaces
-4. Persistence (files vs SQLite)
+4. Persistence (Project files = SoT; SQLite = `.internal/` runtime only)
 5. UI
 6. Tests
 7. Docs / ADR if the decision is durable

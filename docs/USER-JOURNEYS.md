@@ -52,7 +52,7 @@ Create Test Case
   Script ────┘
 ```
 
-No mode stores Playwright as the source of truth.
+No mode stores Playwright as the source of truth. The Test Case is the user-owned artifact; it contains ordered Test Steps. Modes need not be equally complete at every V1 milestone.
 
 ## 6. Object discovery
 
